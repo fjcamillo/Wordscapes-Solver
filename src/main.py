@@ -9,9 +9,11 @@ import sys
 def main():
     
 
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-letters')
-    question = np.array([ 'p', 'a', 'r', 'k'])
+    parser = argparse.ArgumentParser()
+    parser.add_argument('letters', metavar='N', type=str, nargs='+', help='gather strings')
+    args = parser.parse_args()
+
+    question = np.array(args.letters)
     clean = process.clean(question)
     words = reader.read('../english-words/words_dictionary.json')
 

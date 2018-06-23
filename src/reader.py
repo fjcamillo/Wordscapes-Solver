@@ -1,6 +1,7 @@
 import json
 import numpy as np
 import constants
+from typing import Dict
 
 def read(name):
     try:
@@ -15,7 +16,7 @@ def read(name):
                     for letter in word 
                 ], dtype=int), 
             'word': word
-        } for word in words ]
+        } for word in words ] # type: Dict[int, str]
 
     except:
         return
