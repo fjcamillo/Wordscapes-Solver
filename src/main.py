@@ -11,9 +11,11 @@ def main():
 
     # parser = argparse.ArgumentParser()
     # parser.add_argument('-letters')
-    question = np.array([ 'h', 'a', 'p' ])
+    question = np.array([ 'p', 'a', 'r', 'k'])
     clean = process.clean(question)
-    words = reader.read('../../english-words/words_dictionary.json')
+    words = reader.read('../english-words/words_dictionary.json')
+
+    print(len(words))
 
     if not words:
         print('Cannot Find Words')
@@ -21,7 +23,7 @@ def main():
 
     equivalent = process.words(words, clean)
     
-    pprint.pprint(equivalent)
+    pprint.pprint([ d['words'] for d in equivalent])
     return
 
 
