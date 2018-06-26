@@ -14,18 +14,24 @@ def main():
     args = parser.parse_args()
 
     question = np.array(args.letters)
-    clean = process.clean(question)
-    words = reader.read('../english-words/words_dictionary.json')
+    question_range = range(3, question.shape[0])
 
-    print(len(words))
+    for i in question_range:
+        
+        
 
-    if not words:
-        print('Cannot Find Words')
-        sys.exit(1)
+        clean = process.clean(question)
+        words = reader.read('../english-words/words_dictionary.json')
 
-    equivalent = process.words(words, clean)
-    
-    pprint.pprint([ d['words'] for d in equivalent])
+        print(len(words))
+
+        if not words:
+            print('Cannot Find Words')
+            sys.exit(1)
+
+        equivalent = process.words(words, clean)
+        
+        pprint.pprint([ d['words'] for d in equivalent])
     return
 
 

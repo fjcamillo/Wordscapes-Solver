@@ -15,6 +15,9 @@ def words(words, question):
     return answers
 
 def clean(question):
+    """
+    Converts question to numeric values
+    """
 
     clean = np.array([ constants.alphabet[d] for d in question ])
 
