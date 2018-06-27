@@ -1,5 +1,11 @@
 # Wordscapes solver
 
+Setup:
+
+Install all dependencies
+```
+pipenv install
+```
 
 How to use:
 
