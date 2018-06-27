@@ -4,8 +4,9 @@
 How to use:
 
 ```s
->>> python src/main.py p h o n e
->>> ['hop',
+user@user: pipenv shell
+(WordFinder) user@user: python src/main.py p h o n e
+['hop',
  'pho',
  'poh',
  'hep',

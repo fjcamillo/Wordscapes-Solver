@@ -3,7 +3,6 @@ import numpy as np
 import constants
 from typing import Dict
 import requests
-import json
 
 def read(name):
     try:
