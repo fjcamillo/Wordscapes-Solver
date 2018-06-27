@@ -16,7 +16,8 @@ def main():
 
     question = np.array(args.letters)
     question_range = range(3, question.shape[0]+1)
-    words = reader.read('../english-words/words_dictionary.json')
+    # words = reader.read('../english-words/words_dictionary.json')
+    words = reader.request('https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json')
     if not words:
         print('Cannot Find Words')
         sys.exit(1)
