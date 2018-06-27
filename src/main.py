@@ -5,6 +5,7 @@ import reader
 import process
 import pprint
 import sys
+from itertools import combinations
 
 def main():
     
@@ -14,24 +15,25 @@ def main():
     args = parser.parse_args()
 
     question = np.array(args.letters)
-    question_range = range(3, question.shape[0])
+    question_range = range(3, question.shape[0]+1)
+    words = reader.read('../english-words/words_dictionary.json')
+    if not words:
+        print('Cannot Find Words')
+        sys.exit(1)
+    answers = []
 
     for i in question_range:
         
-        
+        combination = combinations(question, i)
 
-        clean = process.clean(question)
-        words = reader.read('../english-words/words_dictionary.json')
+        for combi in combination:
+            clean = process.clean(combi)
+            equivalents = process.words(words, clean)
+            for equivalent in equivalents:
+                answers.append(equivalent['words'])
+    
+    pprint.pprint(answers)
 
-        print(len(words))
-
-        if not words:
-            print('Cannot Find Words')
-            sys.exit(1)
-
-        equivalent = process.words(words, clean)
-        
-        pprint.pprint([ d['words'] for d in equivalent])
     return
 
 
