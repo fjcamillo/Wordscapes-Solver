@@ -10,6 +10,7 @@ pipenv install
 How to use:
 
 ```s
+user@user: pipenv install
 user@user: pipenv shell
 (WordFinder) user@user: python src/main.py p h o n e
 ['hop',
